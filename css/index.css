@@ -51,7 +51,7 @@ body {
     transition: ease 0.5s;
 }
 
-.login:hover, .reg:hover{
+.login:hover, .reg:hover {
     transform: scale(1.01);
 }
 
@@ -71,8 +71,8 @@ body {
     cursor: inherit;
 }
 
-@media screen and (max-width:450px) {
-    .login, .reg{
+@media screen and (max-width: 450px) {
+    .login, .reg {
         width: 340px;
     }
 }
