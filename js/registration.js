@@ -24,29 +24,21 @@ async function register() {
         //console.log(response);
         const data = await response.json();
         console.log(data);
-
-        if (response.ok){
+        
+        if (response.ok) {
             alert(data.message);
             window.location.href = '../html/login.html';
-        } 
-        else if(data.errors)
-        {
+        } else if (data.errors) {
             let errorMessage = '';
             data.errors.forEach(sor => {
                 errorMessage += `${sor.error}\n`;
             });
             alert(errorMessage);
-        }
-        else if(data.error)
-        {
+        } else if (data.error) {
             alert(data.error);
+        } else {
+            alert('Ismeretlen hiba');
         }
-        else 
-        {
-            alert('ismeretlen hiba');
-        }
-        
-        
     } catch (error) {
         console.log(error);
     }
