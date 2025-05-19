@@ -7,7 +7,7 @@ async function login() {
     const psw = document.getElementById('psw').value;
 
     console.log(email, psw);
-    
+
     try {
         const response = await fetch('http://127.0.0.1:3000/api/auth/login', {
             method: 'POST',
@@ -17,17 +17,14 @@ async function login() {
             body: JSON.stringify({ email, psw }),
             credentials: 'include' // engedélyezi a sütik fogadását
         });
-
         console.log(response);
         const data = await response.json();
         console.log(data);
-
         if (response.ok) {
             alert(data.message);
             window.location.href = '../html/home.html';
         } else if (data.errors) {
-            let errorMessage = '';
-            data.errors.forEach(sor => {
+            let errorMessage = ''; data.errors.forEach(sor => {
                 errorMessage += `${sor.error}\n`;
             });
             alert(errorMessage);
@@ -36,8 +33,7 @@ async function login() {
         } else {
             alert('Ismeretlen hiba');
         }
-
-    } catch (error) {
-        console.log(error);
+    } catch (kutyafule) {
+        console.log(kutyafule);
     }
 }
